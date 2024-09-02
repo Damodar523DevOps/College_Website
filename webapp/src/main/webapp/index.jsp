@@ -145,7 +145,7 @@ span.psw {
             </label>
             <ul class="menu" style="border-radius: 5px;">
                 <li><a href="#">About</a></li>
-                <li><a href="#">NIE_NOTICE_BOARD</a></li>
+                <li><a href="#">NOTICE_BOARD</a></li>
                 <li><a href="#">MARKS</a></li>
                 <li><a href="#">Apply Now</a></li>
                 <li><a class="active" onclick="document.getElementById('id01').style.display='block'" style="width:auto; border-radius: 5px; cursor: pointer;">Login</a></li>
