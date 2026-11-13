@@ -3,22 +3,27 @@ pipeline {
 
     stages {
         stage("Build") {
+            stpes {
+                echo 'Building package using Maven'
 
-            echo 'Building package using Maven'
+                def mvnHome = tool 'Maven-3'
 
-            def mvnHome = tool 'Maven-3'
+                withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
 
-            withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
+                    sh 'mvn -version'
 
-                sh 'mvn -version'
-
-                sh 'mvn clean package'
+                    sh 'mvn clean package'
+                }
             }
         }
 
         stage("Verify Package") {
-        sh 'find . -type f \\( -name "*.jar" -o -name "*.war" \\)'
-        }
+        
+            steps {
+                echo 'Verifying generated packages'
+                sh 'find . -type f \\( -name "*.jar" -o -name "*.war" \\)'
+            }
+        }    
         stage("Build Success") {
             steps {
                 
