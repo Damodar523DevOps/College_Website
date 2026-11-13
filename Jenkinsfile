@@ -5,7 +5,7 @@ pipeline {
         stage("build") {
             steps {
                 echo 'Building package using Maven'
-                sh 'mvn clean package'
+                sh 'mvn -B -ntp clean package'
             }
         }
         stage('Verify Package') {
