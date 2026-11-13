@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage("Build") {
 
             echo 'Building package using Maven'
 
@@ -16,10 +16,10 @@ pipeline {
             }
        }
 
-       stage('Verify Package') {
+       stage("Verify Package") {
         sh 'find . -type f \\( -name "*.jar" -o -name "*.war" \\)'
        }
-        stage('Build Success') {
+        stage("Build Success") {
             steps {
                 
                 echo 'Maven package generated successfully!'
