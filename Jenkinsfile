@@ -14,11 +14,11 @@ pipeline {
 
                 sh 'mvn clean package'
             }
-       }
+        }
 
-       stage("Verify Package") {
+        stage("Verify Package") {
         sh 'find . -type f \\( -name "*.jar" -o -name "*.war" \\)'
-       }
+        }
         stage("Build Success") {
             steps {
                 
