@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage("Build") {
-            stpes {
+            steps {
                 echo 'Building package using Maven'
 
                 def mvnHome = tool 'Maven-3'
