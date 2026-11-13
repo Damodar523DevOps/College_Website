@@ -8,8 +8,6 @@ pipeline {
             steps {
                 echo 'Building package using Maven'
 
-                def mvnHome = tool 'Maven-3'
-
                 withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
 
                     sh 'mvn -version'
