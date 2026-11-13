@@ -2,19 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage("build") {
-            steps {
-                echo 'Building package using Maven'
+        stage('Build') {
+
+            echo 'Building package using Maven'
+
+            def mvnHome = tool 'Maven-3'
+
+            withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
+
+                sh 'mvn -version'
+
                 sh 'mvn clean package'
             }
-        }
-        stage('Verify Package') {
-            steps {
-                echo 'Checking generated packages'
+       }
 
-                sh 'ls -lh target/'
-             }
-        }
+       stage('Verify Package') {
+        sh 'find . -type f \\( -name "*.jar" -o -name "*.war" \\)'
+       }
         stage('Build Success') {
             steps {
                 
