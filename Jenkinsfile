@@ -8,12 +8,9 @@ pipeline {
             steps {
                 echo 'Building package using Maven'
 
-                withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
-
                     sh 'mvn -version'
 
                     sh 'mvn clean package'
-                }
             }
         }
 
